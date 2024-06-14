@@ -25,28 +25,27 @@ $(info $$LIB_FUZZING_ENGINE is [${LIB_FUZZING_ENGINE}])
 # You may add extra compiler flags like this:
 CXXFLAGS += -std=c++11
 
-all:  
+all: fuzz_calculator
 
 clean:
 	rm -fv *.a *.o *unittest *_fuzzer *_seed_corpus.zip crash-* *.zip
 
 # Continuos integration system should run "make clean && make check"
 check: all
-	./do_stuff_unittest
-	./do_stuff_fuzzer do_stuff_test_data/*
+	./fuzz_calculator do_stuff_test_data/*
 
 # Unit tests
-do_stuff_unittest: do_stuff_unittest.cpp my_api.a
-	${CXX} ${CXXFLAGS} $< my_api.a -o $@
+#do_stuff_unittest: do_stuff_unittest.cpp my_api.a
+#	${CXX} ${CXXFLAGS} $< my_api.a -o $
 
 	
-do_stuff_fuzzer: do_stuff_fuzzer.cpp my_api.a standalone_fuzz_target_runner.o
-	${CXX} ${CXXFLAGS} $< my_api.a ${LIB_FUZZING_ENGINE} -o $@
+fuzz_calculator: fuzz_calculator.cpp calculator.a standalone_fuzz_target_runner.o
+	${CXX} ${CXXFLAGS} $< calculator.a ${LIB_FUZZING_ENGINE} -o $@
 	zip -q -r do_stuff_fuzzer_seed_corpus.zip do_stuff_test_data
 
 
 # The library itself.
-my_api.a: my_api.cpp my_api.h
+calculator.a: calculator.cpp my_api.h
 	${CXX} ${CXXFLAGS} $^ -c
 	ar ruv my_api.a my_api.o 
 
