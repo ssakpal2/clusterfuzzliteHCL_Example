@@ -34,6 +34,8 @@ clean:
 check: all
 	./fuzz_calculator do_stuff_test_data/*
 
+do_stuff_test_data:
+	mkdir -p do_stuff_test_data
 # Unit tests
 #do_stuff_unittest: do_stuff_unittest.cpp my_api.a
 #	${CXX} ${CXXFLAGS} $< my_api.a -o $
