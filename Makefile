@@ -45,9 +45,9 @@ fuzz_calculator: fuzz_calculator.cpp calculator.a standalone_fuzz_target_runner.
 
 
 # The library itself.
-calculator.a: calculator.cpp my_api.h
+calculator.a: calculator.cpp calculator.hpp
 	${CXX} ${CXXFLAGS} $^ -c
-	ar ruv my_api.a my_api.o 
+	ar ruv calculator.a calculator.o 
 
 # The standalone fuzz target runner.
 standalone_fuzz_target_runner.o: standalone_fuzz_target_runner.cpp
