@@ -15,12 +15,14 @@
 #
 ################################################################################
 
-make -j$(nproc) all    # Build the fuzz targets.
+#make -j$(nproc) all    # Build the fuzz targets.
 # export LIB_FUZZING_ENGINE=${LIB_FUZZING_ENGINE}
 # cmake .
 # cmake --build .
 
 # Copy the fuzzer executables, zip-ed corpora, option and dictionary files to $OUT
-find . -name '*_fuzzer' -exec cp -v '{}' $OUT ';'
-find . -name '*_fuzzer.dict' -exec cp -v '{}' $OUT ';'     # If you have dictionaries
-find . -name '*_fuzzer.options' -exec cp -v '{}' $OUT ';'  # If you have custom options.
+#find . -name '*_fuzzer' -exec cp -v '{}' $OUT ';'
+#find . -name '*_fuzzer.dict' -exec cp -v '{}' $OUT ';'     # If you have dictionaries
+#find . -name '*_fuzzer.options' -exec cp -v '{}' $OUT ';'  # If you have custom options
+
+$CXX $CXXFLAGS -I$SRC/src/ $SRC/fuzz_calculator.cpp $SRC/calculator.cpp -o $OUT/fuzz_badcode $LIB_FUZZING_ENGINE
