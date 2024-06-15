@@ -27,11 +27,11 @@
 
 
 # Clean previous builds (if any)
-rm -rf $OUT/fuzz_calculator
+rm -rf $OUT/fuzz_target
 
 # Compile fuzz_calculator.cpp with calculator.cpp and necessary headers
 $CXX $CXXFLAGS -std=c++11 -I. \
-    fuzz_calculator.cpp -o $OUT/fuzz_calculator \
+    fuzz_target.cpp -o $OUT/fuzz_target \
     $LIB_FUZZING_ENGINE
 
 # Optional: Copy any additional files like dictionaries or options
