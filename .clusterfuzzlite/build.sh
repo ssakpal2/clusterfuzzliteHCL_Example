@@ -31,7 +31,7 @@ rm -rf $OUT/fuzz_calculator
 
 # Compile fuzz_calculator.cpp with calculator.cpp and necessary headers
 $CXX $CXXFLAGS -std=c++11 -I. \
-    fuzz_calculator.cpp calculator.cpp -o $OUT/fuzz_calculator \
+    fuzz_calculator.cpp -o $OUT/fuzz_calculator \
     $LIB_FUZZING_ENGINE
 
 # Optional: Copy any additional files like dictionaries or options
