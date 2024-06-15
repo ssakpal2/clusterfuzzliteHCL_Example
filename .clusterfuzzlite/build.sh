@@ -35,5 +35,5 @@ $CXX $CXXFLAGS -std=c++11 -I. \
     $LIB_FUZZING_ENGINE
 
 # Optional: Copy any additional files like dictionaries or options
-cp $SRC/*.dict $SRC/*.options $OUT/
+#cp $SRC/*.dict $SRC/*.options $OUT/
 
