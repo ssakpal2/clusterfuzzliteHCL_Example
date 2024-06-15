@@ -7,6 +7,10 @@ permissions: read-all
 jobs:
   Build:
    runs-on: ubuntu-latest
+   strategy:
+     fail-fast: false
+     matrix:
+       sanitizer: [address, undefined, memory]  # Override this with the sanitizers you want.
    steps:
    - name: Build Fuzzers
      id: build
