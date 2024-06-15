@@ -43,7 +43,7 @@ check: all
 	
 fuzz_calculator: fuzz_calculator.cpp calculator.a standalone_fuzz_target_runner.o
 	${CXX} ${CXXFLAGS} $< calculator.a ${LIB_FUZZING_ENGINE} -o $@
-	zip -q -r do_stuff_fuzzer_seed_corpus.zip do_stuff_test_data
+	zip -q -r do_stuff_fuzzer_seed_corpus.zip . -i do_stuff_test_data
 
 
 # The library itself.
