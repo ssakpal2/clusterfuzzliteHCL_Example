@@ -5,7 +5,7 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
     std::string Input(reinterpret_cast<const char*>(Data), Size);
 
     // Call calculator::eval with the fuzzed input
-    try {
+    try { 
         calculator::eval<int>(Input);
 
         // Introduce mutations to explore more paths
