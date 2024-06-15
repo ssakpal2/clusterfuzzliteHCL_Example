@@ -3,7 +3,7 @@
 
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
     // Convert input data into a string
-    std::string Input(reinterpret_cast<const char*>(Data), Size);
+    std::string Input(reinterpret_cast<const char*>(Data), Size); 
 
     // Call calculator::eval with the fuzzed input  
     try {
