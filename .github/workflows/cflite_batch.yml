@@ -7,6 +7,12 @@ permissions: read-all
 jobs:
   BatchFuzzing:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        sanitizer:
+        - address
+        - undefined
     steps:
     - name: Build Fuzzers
       id: build
