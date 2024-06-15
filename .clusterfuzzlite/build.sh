@@ -15,7 +15,7 @@
 #
 ################################################################################
 
-#make -j$(nproc) all    # Build the fuzz targets.
+make -j$(nproc) all    # Build the fuzz targets.
 # export LIB_FUZZING_ENGINE=${LIB_FUZZING_ENGINE}
 # cmake .
 # cmake --build .
@@ -27,12 +27,12 @@
 
 
 # Clean previous builds (if any)
-rm -rf $OUT/fuzz_target
+#rm -rf $OUT/fuzz_target
 
 # Compile fuzz_calculator.cpp with calculator.cpp and necessary headers
-$CXX $CXXFLAGS -std=c++11 -I. \
-    fuzz_target.cpp -o $OUT/fuzz_target \
-    $LIB_FUZZING_ENGINE
+#$CXX $CXXFLAGS -std=c++11 -I. \
+#    fuzz_target.cpp -o $OUT/fuzz_target \
+#    $LIB_FUZZING_ENGINE
 
 # Optional: Copy any additional files like dictionaries or options
 #cp $SRC/*.dict $SRC/*.options $OUT/
