@@ -21,7 +21,7 @@
 /// +           Addition                Left              10
 /// -           Subtraction             Left              10
 /// *           Multiplication          Left              20
-/// /           Division                Left              20
+/// /           Division                Left              20 
 /// %           Modulo                  Left              20
 /// **          Raise to power          Right             30
 /// e, E        Scientific notation     Right             40
