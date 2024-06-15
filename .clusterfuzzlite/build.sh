@@ -25,4 +25,15 @@
 #find . -name '*_fuzzer.dict' -exec cp -v '{}' $OUT ';'     # If you have dictionaries
 #find . -name '*_fuzzer.options' -exec cp -v '{}' $OUT ';'  # If you have custom options
 
-$CXX $CXXFLAGS -I$SRC/src/ $SRC/fuzz_calculator.cpp $SRC/calculator.cpp -o $OUT/fuzz_badcode $LIB_FUZZING_ENGINE
+
+# Clean previous builds (if any)
+rm -rf $OUT/fuzz_calculator
+
+# Compile fuzz_calculator.cpp with calculator.cpp and necessary headers
+$CXX $CXXFLAGS -std=c++11 -I. \
+    $SRC/fuzz_calculator.cpp $SRC/calculator.cpp -o $OUT/fuzz_calculator \
+    $LIB_FUZZING_ENGINE
+
+# Optional: Copy any additional files like dictionaries or options
+cp $SRC/*.dict $SRC/*.options $OUT/
+
