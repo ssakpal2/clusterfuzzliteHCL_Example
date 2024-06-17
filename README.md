@@ -5,10 +5,8 @@ This directory contains an example software project that has most of the traits 
 ## Files in my-api-repo
 Imagine that these files reside in your project's repository:
 
-* [calculactor.h](calculator.hpp): and [calculator.cpp](calculator.cpp) implement the calculator functinality we want to test/fuzz. The function `DoStuff()` inside [my_api.cpp](my_api.cpp) contains a bug. (Find it!)
-* [do_stuff_fuzzer.cpp](do_stuff_fuzzer.cpp): is a [fuzz target](http://libfuzzer.info/#fuzz-target) for `DoStuff()`.
-* [do_stuff_test_data](do_stuff_test_data): corpus directory for [do_stuff_fuzzer.cpp](do_stuff_fuzzer.cpp).
-* [do_stuff_fuzzer.dict](do_stuff_fuzzer.dict): a [fuzzing dictionary file](https://google.github.io/oss-fuzz/getting-started/new-project-guide#dictionaries) for `DoStuff()`. Optional, but may improve fuzzing in many cases. 
+* [calculactor.h](calculator.hpp): and [calculator.cpp](calculator.cpp) implement the calculator functinality we want to test/fuzz. The function `calculator::eval()` inside [calculator.cpp](calculator.cpp) contains a bug. (Find it!)
+* [fuzz_calculator.cpp](fuzz_calculator.cpp): is a [fuzz target](http://libfuzzer.info/#fuzz-target) for `calculator::eval()`.
 * [Makefile](Makefile): is a build file (the same can be done with other build systems):
   * accepts external compiler flags via `$CC`, `$CXX`, `$CFLAGS`, `$CXXFLAGS`
   * accepts external fuzzing engine via `$LIB_FUZZING_ENGINE`, by default uses [standalone_fuzz_target_runner.cpp](standalone_fuzz_target_runner.cpp)
