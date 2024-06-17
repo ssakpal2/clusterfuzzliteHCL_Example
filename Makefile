@@ -25,14 +25,14 @@ $(info $$LIB_FUZZING_ENGINE is [${LIB_FUZZING_ENGINE}])
 # You may add extra compiler flags like this:
 CXXFLAGS += -std=c++11
 
-all: fuzz_calculator
+all: fuzz_target
 
 clean:
 	rm -fv *.a *.o  *_fuzzer *_seed_corpus.zip crash-* *.zip
 
 # Continuos integration system should run "make clean && make check"
 check: all
-	./fuzz_calculator do_stuff_test_data/*
+	./fuzz_target do_stuff_test_data/*
 
 #do_stuff_test_data:
 #	mkdir -p do_stuff_test_data
@@ -41,7 +41,7 @@ check: all
 #	${CXX} ${CXXFLAGS} $< my_api.a -o $
 
 	
-fuzz_calculator: fuzz_calculator.cpp calculator.a standalone_fuzz_target_runner.o
+fuzz_target: fuzz_target.cpp calculator.a standalone_fuzz_target_runner.o
 	${CXX} ${CXXFLAGS} $< calculator.a ${LIB_FUZZING_ENGINE} -o $@
 	zip -q -r do_stuff_fuzzer_seed_corpus.zip . -i do_stuff_test_data
 
