@@ -28,7 +28,7 @@ CXXFLAGS += -std=c++11
 all: fuzz_calculator
 
 clean:
-	rm -fv *.a *.o *unittest *_fuzzer *_seed_corpus.zip crash-* *.zip
+	rm -fv *.a *.o  *_fuzzer *_seed_corpus.zip crash-* *.zip
 
 # Continuos integration system should run "make clean && make check"
 check: all
