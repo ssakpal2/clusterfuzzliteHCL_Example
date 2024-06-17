@@ -11,7 +11,7 @@ Imagine that these files reside in your project's repository:
   * accepts external compiler flags via `$CC`, `$CXX`, `$CFLAGS`, `$CXXFLAGS`
   * accepts external fuzzing engine via `$LIB_FUZZING_ENGINE`, by default uses [standalone_fuzz_target_runner.cpp](standalone_fuzz_target_runner.cpp)
   * builds the fuzz target(s) and their corpus archive(s)
-  * `make check` executes [do_stuff_fuzzer.cpp](do_stuff_fuzzer.cpp) on [`do_stuff_test_data/*`](do_stuff_test_data), thus ensures that the fuzz target is up to date and uses it as a regression test.
+  * `make check` executes [fuzz_calculator.cpp](fuzz_calculator.cpp) on [`do_stuff_test_data/*`](do_stuff_test_data), thus ensures that the fuzz target is up to date and uses it as a regression test.
 * [standalone_fuzz_target_runner.cpp](standalone_fuzz_target_runner.cpp): is a simple standalone runner for fuzz targets. You may use it to execute a fuzz target on given files w/o having to link in libFuzzer or other fuzzing engine.
 
 ## Files in OSS-Fuzz repository
