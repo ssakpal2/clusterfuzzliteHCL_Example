@@ -5,7 +5,7 @@ This directory contains an example software project that has most of the traits 
 ## Files in my-api-repo
 Imagine that these files reside in your project's repository:
 
-* [my_api.h](my_api.h): and [my_api.cpp](my_api.cpp) implement the API we want to test/fuzz. The function `DoStuff()` inside [my_api.cpp](my_api.cpp) contains a bug. (Find it!)
+* [calculactor.h](calculator.hpp): and [calculator.cpp](calculator.cpp) implement the calculator functinality we want to test/fuzz. The function `DoStuff()` inside [my_api.cpp](my_api.cpp) contains a bug. (Find it!)
 * [do_stuff_fuzzer.cpp](do_stuff_fuzzer.cpp): is a [fuzz target](http://libfuzzer.info/#fuzz-target) for `DoStuff()`.
 * [do_stuff_test_data](do_stuff_test_data): corpus directory for [do_stuff_fuzzer.cpp](do_stuff_fuzzer.cpp).
 * [do_stuff_fuzzer.dict](do_stuff_fuzzer.dict): a [fuzzing dictionary file](https://google.github.io/oss-fuzz/getting-started/new-project-guide#dictionaries) for `DoStuff()`. Optional, but may improve fuzzing in many cases. 
