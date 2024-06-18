@@ -32,7 +32,7 @@ clean:
 
 # Continuos integration system should run "make clean && make check"
 check: all
-	./fuzz_target do_stuff_test_data/*
+	./fuzz_target fuzz_calculator/*
 
 #do_stuff_test_data:
 #	mkdir -p do_stuff_test_data
@@ -43,7 +43,7 @@ check: all
 	
 fuzz_target: fuzz_target.cpp calculator.a standalone_fuzz_target_runner.o
 	${CXX} ${CXXFLAGS} $< calculator.a ${LIB_FUZZING_ENGINE} -o $@
-	zip -q -r do_stuff_fuzzer_seed_corpus.zip . -i do_stuff_test_data
+	zip -q -r do_stuff_fuzzer_seed_corpus.zip . -i fuzz_calculator
 
 
 # The library itself.
