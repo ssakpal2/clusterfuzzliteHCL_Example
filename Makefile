@@ -32,7 +32,7 @@ clean:
 
 # Continuos integration system should run "make clean && make check"
 check: all
-	./fuzz_target fuzz_calculator/*
+	./fuzz_target fuzz_calculator/* -dict=fuzz_calculator.dict
 
 #do_stuff_test_data:
 #	mkdir -p do_stuff_test_data
