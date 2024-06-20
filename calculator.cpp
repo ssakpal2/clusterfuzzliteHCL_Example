@@ -2,7 +2,7 @@
 /// @file   test.cpp
 /// @brief  test program for calculator.hpp
 ///
-/// Copyright (C) 2013 Kim Walisch, <kim.walisch@gmail.com>
+/// Copyright (C) 2013 Kim Walisch, <kim.walisch@gmail.com> 
 ///
 /// This file is distributed under the New BSD License. See the
 /// LICENSE file in the top level directory.
@@ -28,6 +28,8 @@
 #define EXPR9 1- ~1*0xfFa/( ((((8+(6|(4 *(2*(1)*3)*5)|7)+9)))))
 #define EXPRa ((12|13)<<8)>>((1|127) %10&(31+7))
 #define EXPRb ((((((((((5))))))  ))))- ((((((((( 6)))))))))
+#define EXPRc 10 // 2
+#define EXPRd 100 // 10 // 3
 
 int failed = 0;
 
@@ -59,6 +61,8 @@ int main()
   compare(EXPR9, TOSTRING(EXPR9));
   compare(EXPRa, TOSTRING(EXPRa));
   compare(EXPRb, TOSTRING(EXPRb));
+  compare(EXPRc, TOSTRING(EXPRc));  
+  compare(EXPRd, TOSTRING(EXPRd)); 
 
   if (failed != 0)
   {
