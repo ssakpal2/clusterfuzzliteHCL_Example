@@ -13,8 +13,6 @@ jobs:
       uses: google/clusterfuzzlite/actions/build_fuzzers@v1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        mode: 'code-change'
-        sanitizer: coverage
         storage-repo: https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/ssakpal2/clusterfuzzliteHCL-example-storage.git
         storage-repo-branch-coverage: gh-pages
     - name: Run Fuzzers
@@ -23,6 +21,7 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         fuzz-seconds: 120
-        mode: 'coverage'
+        mode: 'code-change'
+        output-sarif: true
         storage-repo: https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/ssakpal2/clusterfuzzliteHCL-example-storage.git
-        storage-repo-branch-coverage: pr-coverage
+        storage-repo-branch-coverage: gh-pages
