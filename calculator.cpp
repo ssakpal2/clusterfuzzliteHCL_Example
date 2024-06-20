@@ -28,7 +28,8 @@
 #define EXPR9 1- ~1*0xfFa/( ((((8+(6|(4 *(2*(1)*3)*5)|7)+9)))))
 #define EXPRa ((12|13)<<8)>>((1|127) %10&(31+7))
 #define EXPRb ((((((((((5))))))  ))))- ((((((((( 6)))))))))
-
+#define EXPRc 10 // 3
+#define EXPRd 100 // 10 // 2
 int failed = 0;
 
 void compare(int result, const std::string& str)
@@ -59,6 +60,8 @@ int main()
   compare(EXPR9, TOSTRING(EXPR9));
   compare(EXPRa, TOSTRING(EXPRa));
   compare(EXPRb, TOSTRING(EXPRb));
+  comapre(EXPRc, TOSTRING(EXPRc));
+  compare(EXPRd, TOSTRING(EXPRd));
 
   if (failed != 0)
   {
