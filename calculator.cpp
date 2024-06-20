@@ -5,7 +5,7 @@
 /// Copyright (C) 2013 Kim Walisch, <kim.walisch@gmail.com>
 ///
 /// This file is distributed under the New BSD License. See the
-/// LICENSE file in the top level directory.
+/// LICENSE file in the top level directory.  
 ///
 
 #include "calculator.hpp"
@@ -14,7 +14,7 @@
 #include <string>
 
 #define STR1(s) #s
-#define TOSTRING(s) STR1(s)
+#define TOSTRING(s) STR1(s) 
 
 /// Test expressions
 #define EXPR1 45345 + 0 + 0xdf234 - 1000 % 7
