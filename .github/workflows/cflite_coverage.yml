@@ -1,8 +1,8 @@
 name: ClusterFuzzLite Coverage
 on:
-  pull_request:
-    paths:
-      - '**' # Use your actual default branch here.
+  push:
+    branches:
+      - main # Use your actual default branch here.
 permissions: read-all
 jobs:
   Coverage:
