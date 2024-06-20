@@ -138,7 +138,7 @@ private:
     OPERATOR_SUBTRACTION,    /// -
     OPERATOR_MULTIPLICATION, /// *
     OPERATOR_DIVISION,       /// /
-    OPERATOR_INTEGER_DIVISION,/// //
+    OPERATOR_INTEGE_DIVISION,/// //
     OPERATOR_MODULO,         /// %
     OPERATOR_POWER,          /// **
     OPERATOR_EXPONENT        /// e, E
@@ -238,7 +238,7 @@ private:
       case OPERATOR_MULTIPLICATION: return v1 * v2;
       case OPERATOR_DIVISION:       return v1 / checkZero(v2);
       case OPERATOR_MODULO:         return v1 % checkZero(v2);
-      case OPERATOR_INTEGER_DIVISION: return v1/v2;
+      case OPERATOR_INTEGE_DIVISION: return v1/v2;
       case OPERATOR_POWER:          return pow(v1, v2);
       case OPERATOR_EXPONENT:       return v1 * pow(10, v2);
       default:                      return 0;
@@ -307,7 +307,7 @@ private:
       case '/': index_++; if (getCharacter() == '/')
                 {
                   index_++;
-                  return Operator(OPERATOR_INTEGER_DIVISION,       20, 'L');
+                  return Operator(OPERATOR_INTEGE_DIVISION,       20, 'L');
                 }
                 return Operator(OPERATOR_DIVISION,     20, 'L'); 
       case '%': index_++;     return Operator(OPERATOR_MODULO,         20, 'L');
