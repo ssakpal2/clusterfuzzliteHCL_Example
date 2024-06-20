@@ -23,6 +23,6 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         fuzz-seconds: 120
-        mode: 'code-change'
+        mode: 'covrage'
         storage-repo: https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/ssakpal2/clusterfuzzliteHCL-example-storage.git
         storage-repo-branch-coverage: pr-coverage
