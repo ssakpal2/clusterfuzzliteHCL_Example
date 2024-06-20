@@ -25,4 +25,11 @@ jobs:
         mode: 'code-change'
         storage-repo: https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/ssakpal2/clusterfuzzliteHCL-example-storage.git
         storage-repo-branch-coverage: pr-coverage
-        
+      - name: 
+        id: coverage-report
+        uses: google/clusterfuzzlite/actions/generate_coverage_report@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          mode: 'code-change'
+          storage-repo: https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/ssakpal2/clusterfuzzliteHCL-example-storage.git
+          coverage-location: pr-coverage 
