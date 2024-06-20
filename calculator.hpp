@@ -304,7 +304,7 @@ private:
       case '>': expect(">>"); return Operator(OPERATOR_BITWISE_SHR,     9, 'L');
       case '+': index_++;     return Operator(OPERATOR_ADDITION,       10, 'L');
       case '-': index_++;     return Operator(OPERATOR_SUBTRACTION,    10, 'L');
-      case '/': index_++; if (getCharacter() == '/'
+      case '/': index_++; if (getCharacter() == '/')
                 {
                   index_++;
                   return Operator(OPERATOR_INTEGER_DIVISION,       20, 'L');
@@ -401,6 +401,17 @@ private:
     }
     return val;
   }
+  ///added new feature
+  T calculate(T v1, T v2, const Operator& op) const
+  {
+    switch (op.op)
+    {
+        // existing cases...
+        case OPERATOR_INTEGER_DIVISION:
+            return v1 / checkZero(v2);
+        // existing cases...
+      }
+    }
 
   /// Parse all operations of the current parenthesis
   /// level and the levels above, when done
