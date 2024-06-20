@@ -60,7 +60,7 @@ int main()
   compare(EXPR9, TOSTRING(EXPR9));
   compare(EXPRa, TOSTRING(EXPRa));
   compare(EXPRb, TOSTRING(EXPRb));
-  comapre(EXPRc, TOSTRING(EXPRc));
+  compare(EXPRc, TOSTRING(EXPRc));
   compare(EXPRd, TOSTRING(EXPRd));
 
   if (failed != 0)
