@@ -2,7 +2,7 @@
 /// @file   test.cpp
 /// @brief  test program for calculator.hpp
 ///
-/// Copyright (C) 2013 Kim Walisch, <kim.walisch@gmail.com>
+/// Copyright (C) 2013 Kim Walisch, <kim.walisch@gmail.com> 
 ///
 /// This file is distributed under the New BSD License. See the
 /// LICENSE file in the top level directory.
