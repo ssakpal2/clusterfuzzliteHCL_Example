@@ -77,7 +77,7 @@ class error : public std::runtime_error
 {
 public:
   error(const std::string& expr, const std::string& message)
-    : std::runtime_error(message),
+    : std::runtime_error(message), 
       expr_(expr)
   { }
 #if __cplusplus < 201103L
