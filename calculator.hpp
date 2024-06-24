@@ -77,7 +77,7 @@ class error : public std::runtime_error
 {
 public:
   error(const std::string& expr, const std::string& message)
-    : std::runtime_error(message),
+    : std::runtime_error(message), 
       expr_(expr)
   { }
 #if __cplusplus < 201103L
@@ -138,6 +138,7 @@ private:
     OPERATOR_SUBTRACTION,    /// -
     OPERATOR_MULTIPLICATION, /// *
     OPERATOR_DIVISION,       /// /
+    OPERATOR_INTEGER_DIVISION,/// //
     OPERATOR_MODULO,         /// %
     OPERATOR_POWER,          /// **
     OPERATOR_EXPONENT        /// e, E
@@ -237,6 +238,7 @@ private:
       case OPERATOR_MULTIPLICATION: return v1 * v2;
       case OPERATOR_DIVISION:       return v1 / checkZero(v2);
       case OPERATOR_MODULO:         return v1 % checkZero(v2);
+      case OPERATOR_INTEGER_DIVISION: return v1/v2;
       case OPERATOR_POWER:          return pow(v1, v2);
       case OPERATOR_EXPONENT:       return v1 * pow(10, v2);
       default:                      return 0;
@@ -302,7 +304,12 @@ private:
       case '>': expect(">>"); return Operator(OPERATOR_BITWISE_SHR,     9, 'L');
       case '+': index_++;     return Operator(OPERATOR_ADDITION,       10, 'L');
       case '-': index_++;     return Operator(OPERATOR_SUBTRACTION,    10, 'L');
-      case '/': index_++;     return Operator(OPERATOR_DIVISION,       20, 'L');
+      case '/': index_++;  if (getCharacter() == '/')  
+                {
+                  index_++;
+                  return Operator(OPERATOR_INTEGER_DIVISION,       20, 'L');
+                }
+                return Operator(OPERATOR_DIVISION,       20, 'L');
       case '%': index_++;     return Operator(OPERATOR_MODULO,         20, 'L');
       case '*': index_++; if (getCharacter() != '*')
                               return Operator(OPERATOR_MULTIPLICATION, 20, 'L');
